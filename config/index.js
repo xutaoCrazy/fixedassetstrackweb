@@ -10,7 +10,15 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: { //配置跨域解决
+      '/fixedassetweb': {
+        target: 'http://192.168.1.189:8080',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/fixedassetweb': '/fixedassetweb'
+        }
+      },
+    },
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
